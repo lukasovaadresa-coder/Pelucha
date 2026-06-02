@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Petr Pělucha Photography – Návrh homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#B8974A;
+  --gold-light:#D4B472;
+  --dark:#1A1714;
+  --mid:#3A3530;
+  --warm:#F5F1EB;
+  --soft:#EDE8E0;
+  --text:#2A2520;
+  --muted:#7A7268;
+  --white:#FDFCFA;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);line-height:1.6}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif}
+.page{max-width:1100px;margin:0 auto;padding:0 2rem}
+
+/* NAV */
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 2rem;border-bottom:0.5px solid rgba(184,151,74,0.25);background:var(--white);position:sticky;top:0;z-index:200}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;letter-spacing:0.08em;color:var(--dark);text-decoration:none;flex-shrink:0}
+.nav-logo span{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--dark);color:var(--warm);padding:0.55rem 1.3rem;border-radius:2px;text-decoration:none;transition:background 0.2s;flex-shrink:0}
+.nav-cta:hover{background:var(--gold)}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;width:36px;height:36px}
+.nav-hamburger span{display:block;height:1.5px;background:var(--dark);transition:all 0.28s ease;transform-origin:center}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.nav-mobile-menu.open{display:flex}
+.nav-mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--dark);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+.nav-mobile-menu a:hover{color:var(--gold)}
+.nav-mobile-menu .mobile-cta{font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;background:var(--dark);color:var(--warm);padding:0.75rem 2.5rem;border-radius:2px;margin-top:1rem}
+.nav-mobile-menu .mobile-cta:hover{background:var(--gold);color:var(--dark)}
+.nav-mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;cursor:pointer;font-size:1.5rem;color:var(--muted);line-height:1}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:92vh;position:relative;overflow:hidden}
+.hero-left{background:#1c1915;display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 3rem;position:relative;cursor:pointer}
+.hero-left::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,23,20,0.88) 0%,rgba(26,23,20,0.25) 60%,transparent 100%)}
+.hero-right{background:#ede8e0;display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 3rem;position:relative;cursor:pointer}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(237,232,224,0.92) 0%,rgba(237,232,224,0.15) 60%,transparent 100%)}
+.hero-photo-dark{background:repeating-linear-gradient(45deg,#1e1b17 0px,#1e1b17 2px,#231f1b 2px,#231f1b 14px)}
+.hero-photo-light{background:repeating-linear-gradient(45deg,#e2dcd3 0px,#e2dcd3 2px,#ede8e0 2px,#ede8e0 14px)}
+.hero-placeholder{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;text-align:center;width:80%}
+.hero-placeholder.light-ph{color:rgba(42,37,32,0.2)}
+.hero-placeholder.dark-ph{color:rgba(255,255,255,0.15)}
+.hero-tag{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;position:relative;z-index:2}
+.hero-title-dark{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;line-height:1.12;color:#fdfcfa;position:relative;z-index:2;margin-bottom:1rem}
+.hero-title-dark em{font-style:italic;color:var(--gold-light)}
+.hero-title-light{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;line-height:1.12;color:var(--dark);position:relative;z-index:2;margin-bottom:1rem}
+.hero-title-light em{font-style:italic;color:var(--gold)}
+.hero-desc-dark{font-size:0.82rem;line-height:1.7;color:rgba(255,255,255,0.6);position:relative;z-index:2;margin-bottom:1.75rem;max-width:24ch}
+.hero-desc-light{font-size:0.82rem;line-height:1.7;color:var(--muted);position:relative;z-index:2;margin-bottom:1.75rem;max-width:24ch}
+.hero-btn{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.8rem 1.6rem;border:1px solid var(--gold);color:var(--gold);background:transparent;cursor:pointer;position:relative;z-index:2;transition:all 0.25s;text-decoration:none;width:fit-content;font-family:'DM Sans',sans-serif}
+.hero-btn:hover{background:var(--gold);color:var(--dark)}
+.hero-btn-light{border-color:var(--dark);color:var(--dark)}
+.hero-btn-light:hover{background:var(--dark);color:var(--warm)}
+.hero-divider{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent 0%,rgba(184,151,74,0.55) 25%,rgba(184,151,74,0.55) 75%,transparent 100%);z-index:10}
+.hero-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;background:var(--white);border:1px solid rgba(184,151,74,0.45);border-radius:50%;width:84px;height:84px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 8px rgba(253,252,250,0.6)}
+.hero-badge .hb-name{font-family:'Cormorant Garamond',serif;font-size:0.62rem;letter-spacing:0.1em;color:var(--dark);font-weight:600;line-height:1.4}
+.hero-badge .hb-years{font-size:0.58rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;margin-top:0.15rem}
+
+/* TRUST BAR */
+.trust-bar{background:var(--dark);padding:1.1rem 2rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:0.65rem}
+.trust-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--gold-light);line-height:1}
+.trust-label{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+.trust-dot{width:3px;height:3px;border-radius:50%;background:rgba(184,151,74,0.35)}
+
+/* SECTIONS */
+.section{padding:6rem 0}
+.section-tag{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;line-height:1.2;margin-bottom:1rem}
+.section-title em{font-style:italic}
+
+/* BIZNIS */
+.biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.biz-visual{background:repeating-linear-gradient(45deg,#1a1714 0px,#1a1714 2px,#201d19 2px,#201d19 14px);aspect-ratio:4/5;border-radius:2px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.biz-visual::after{content:'';position:absolute;bottom:0;left:0;right:0;height:38%;background:linear-gradient(to top,rgba(26,23,20,0.72),transparent);pointer-events:none}
+.biz-quote{position:absolute;bottom:1.75rem;left:1.75rem;font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:rgba(255,255,255,0.65);z-index:2;line-height:1.5}
+.photo-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.18)}
+.photo-label-light{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(42,37,32,0.2)}
+.arg-list{display:flex;flex-direction:column;gap:1.5rem;margin:2rem 0}
+.arg-item{display:flex;gap:1rem;align-items:flex-start}
+.arg-num{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold);font-weight:600;min-width:1.75rem;padding-top:0.05rem}
+.arg-text h4{font-size:0.8rem;letter-spacing:0.04em;font-weight:500;margin-bottom:0.2rem;color:var(--dark)}
+.arg-text p{font-size:0.8rem;color:var(--muted);line-height:1.65}
+.price-row{display:flex;gap:1rem;margin:2rem 0}
+.price-card{flex:1;border:0.5px solid rgba(184,151,74,0.3);padding:1.35rem 1.1rem;border-radius:2px;position:relative}
+.price-card.featured{border-color:var(--gold);background:rgba(184,151,74,0.04)}
+.price-badge{position:absolute;top:-0.55rem;left:1rem;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;background:var(--gold);color:#fff;padding:0.18rem 0.65rem;border-radius:1px}
+.price-name{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.3rem}
+.price-amount{font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:600;color:var(--dark);line-height:1.2}
+.price-desc{font-size:0.72rem;color:var(--muted);margin-top:0.25rem;line-height:1.5}
+.btn-primary{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;padding:0.9rem 2.1rem;background:var(--dark);color:var(--warm);border:none;cursor:pointer;border-radius:2px;transition:background 0.2s;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:400}
+.btn-primary:hover{background:var(--gold)}
+
+/* WEDDING */
+.wedding-section{background:var(--dark);color:var(--warm)}
+.wedding-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.wedding-visual{background:repeating-linear-gradient(-45deg,#26221e 0px,#26221e 2px,#2e2923 2px,#2e2923 14px);aspect-ratio:4/5;border-radius:2px;display:flex;align-items:center;justify-content:center}
+.wedding-section .section-tag{color:var(--gold-light)}
+.wedding-section .section-title{color:var(--warm)}
+.wedding-section .arg-num{color:var(--gold-light)}
+.wedding-section .arg-text h4{color:var(--warm)}
+.wedding-section .arg-text p{color:rgba(253,252,250,0.52)}
+.wedding-section .price-card{border-color:rgba(212,180,114,0.22)}
+.wedding-section .price-card.featured{border-color:var(--gold-light);background:rgba(212,180,114,0.06)}
+.wedding-section .price-amount{color:var(--warm)}
+.wedding-section .price-name{color:rgba(253,252,250,0.42)}
+.wedding-section .price-desc{color:rgba(253,252,250,0.42)}
+.wedding-section .price-badge{background:var(--gold-light);color:var(--dark)}
+.btn-wedding{background:transparent;color:var(--gold-light);border:1px solid var(--gold-light);display:inline-flex;align-items:center;gap:0.6rem;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;padding:0.9rem 2.1rem;cursor:pointer;border-radius:2px;transition:all 0.2s;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:400}
+.btn-wedding:hover{background:var(--gold-light);color:var(--dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.85rem;margin-top:3.5rem}
+.gallery-thumb{aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#26221e 0,#26221e 2px,#2e2923 2px,#2e2923 10px);border-radius:2px}
+
+/* ABOUT */
+.about-section{background:var(--warm);padding:6rem 0}
+.about-grid{display:grid;grid-template-columns:5fr 7fr;gap:5rem;align-items:center}
+.about-img{aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#c5bdb0 0,#c5bdb0 2px,#cdc5b7 2px,#cdc5b7 10px);border-radius:2px;display:flex;align-items:center;justify-content:center}
+.about-quote{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:300;font-style:italic;line-height:1.5;color:var(--dark);margin-bottom:1.5rem;padding-left:1.5rem;border-left:2px solid var(--gold)}
+.about-body{font-size:0.82rem;color:var(--muted);line-height:1.85}
+.about-sig{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--gold);margin-top:1.5rem}
+
+/* REVIEWS */
+.reviews-section{background:var(--white);padding:5.5rem 0}
+.reviews-head{text-align:center;margin-bottom:3rem}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.review-card{border:0.5px solid rgba(184,151,74,0.2);padding:2.25rem 2rem;border-radius:2px;position:relative;background:var(--white)}
+.review-card::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:4.5rem;color:var(--gold);opacity:0.25;position:absolute;top:0.6rem;left:1.6rem;line-height:1}
+.review-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:1.25rem;padding-top:1.5rem}
+.review-author{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.review-chip{display:inline-block;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.65rem;margin-top:0.5rem;border-radius:1px}
+.chip-biz{background:rgba(184,151,74,0.1);color:var(--gold)}
+.chip-wed{background:rgba(26,23,20,0.07);color:var(--mid)}
+
+/* KURZ – kompaktní banner */
+.kurz-section{background:var(--soft);padding:4rem 0}
+.kurz-inner{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;border:0.5px solid rgba(184,151,74,0.3);border-radius:2px;padding:2.5rem 3rem;background:var(--white)}
+.kurz-kicker{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem}
+.kurz-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;line-height:1.2;color:var(--dark);margin-bottom:0.75rem}
+.kurz-title em{font-style:italic}
+.kurz-desc{font-size:0.8rem;color:var(--muted);line-height:1.75;max-width:52ch}
+.kurz-meta{display:flex;gap:1.5rem;margin-top:1rem;flex-wrap:wrap}
+.kurz-pill{font-size:0.68rem;letter-spacing:0.08em;color:var(--mid);background:var(--soft);padding:0.3rem 0.75rem;border-radius:1px;border:0.5px solid rgba(184,151,74,0.25)}
+.kurz-cta{flex-shrink:0;text-align:right}
+.kurz-cta .btn-primary{white-space:nowrap}
+.kurz-cta .kurz-note{font-size:0.68rem;color:var(--muted);margin-top:0.6rem;text-align:center}
+
+/* BLOG – 3 kartičky */
+.blog-section{background:var(--white);padding:5rem 0}
+.blog-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2.5rem}
+.blog-head-left .section-tag{margin-bottom:0.25rem}
+.blog-head-left .section-title{margin-bottom:0;font-size:2rem}
+.blog-all{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:color 0.2s}
+.blog-all:hover{color:var(--dark)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.blog-card{border:0.5px solid rgba(184,151,74,0.18);border-radius:2px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-color 0.2s}
+.blog-card:hover{border-color:var(--gold)}
+.blog-thumb{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,#e0dbd2 0,#e0dbd2 2px,#e8e2d8 2px,#e8e2d8 10px);display:flex;align-items:center;justify-content:center}
+.blog-thumb-dark{background:repeating-linear-gradient(45deg,#1e1b17 0,#1e1b17 2px,#261f1a 2px,#261f1a 10px)}
+.blog-body{padding:1.25rem 1.25rem 1.5rem;display:flex;flex-direction:column;flex:1}
+.blog-cat{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--dark);line-height:1.4;margin-bottom:auto}
+.blog-date{font-size:0.68rem;color:var(--muted);margin-top:1rem;letter-spacing:0.04em}
+
+/* FORM */
+.form-section{background:var(--dark);padding:6.5rem 0}
+.form-intro{text-align:center;margin-bottom:3rem}
+.form-intro .section-title{color:var(--warm)}
+.form-intro .section-tag{color:var(--gold-light)}
+.form-intro p{font-size:0.82rem;color:rgba(253,252,250,0.5);max-width:44ch;margin:0 auto;line-height:1.75}
+.form-box{background:rgba(255,255,255,0.035);border:0.5px solid rgba(184,151,74,0.22);padding:3rem 3.5rem;border-radius:2px;max-width:700px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.form-full{grid-column:1/-1}
+.field-label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(253,252,250,0.45);margin-bottom:0.5rem}
+.field-input{width:100%;background:rgba(255,255,255,0.05);border:0.5px solid rgba(184,151,74,0.22);border-radius:2px;padding:0.8rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--warm);outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none}
+.field-input::placeholder{color:rgba(253,252,250,0.22)}
+.field-input:focus{border-color:var(--gold)}
+select.field-input option{background:#1a1714;color:var(--warm)}
+textarea.field-input{resize:vertical;min-height:110px}
+.dynamic-field{display:none}
+.dynamic-field.visible{display:block}
+.form-submit{width:100%;padding:1.05rem;background:var(--gold);border:none;color:var(--dark);font-family:'DM Sans',sans-serif;font-size:0.75rem;letter-spacing:0.17em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:0.5rem;transition:background 0.2s;font-weight:500}
+.form-submit:hover{background:var(--gold-light)}
+.form-note{text-align:center;font-size:0.68rem;color:rgba(253,252,250,0.28);margin-top:1rem;letter-spacing:0.05em}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:0.5px solid rgba(184,151,74,0.18);padding:3rem 0}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.25rem}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--warm);letter-spacing:0.08em;text-decoration:none}
+.footer-logo span{color:var(--gold)}
+.footer-contact{font-size:0.74rem;color:rgba(253,252,250,0.38);text-align:center;line-height:1.9}
+.footer-contact a{color:var(--gold-light);text-decoration:none}
+.footer-contact a:hover{color:var(--warm)}
+.footer-social{display:flex;gap:1.25rem}
+.footer-social a{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(253,252,250,0.38);text-decoration:none;transition:color 0.2s}
+.footer-social a:hover{color:var(--gold-light)}
+
+/* PREVIEW BANNER */
+.preview-banner{background:var(--gold);padding:0.6rem 1.5rem;text-align:center;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dark);font-weight:500}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none}
+  .nav-hamburger{display:flex}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left,.hero-right{padding:3rem 2rem;min-height:60vw}
+  .hero-divider,.hero-badge{display:none}
+  .hero-title-dark,.hero-title-light{font-size:2.4rem}
+  .biz-grid,.wedding-grid,.about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .biz-visual,.wedding-visual,.about-img{aspect-ratio:16/9}
+  .reviews-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .form-full{grid-column:1}
+  .form-box{padding:2rem 1.5rem}
+  .trust-bar{gap:1.5rem}
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .kurz-inner{grid-template-columns:1fr;gap:1.5rem}
+  .kurz-cta{text-align:left}
+  .blog-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .hero-left,.hero-right{padding:2.5rem 1.5rem}
+  .hero-title-dark,.hero-title-light{font-size:2rem}
+  .section{padding:4rem 0}
+  .page{padding:0 1.25rem}
+  .price-row{flex-direction:column}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .blog-grid{grid-template-columns:1fr}
+  .kurz-inner{padding:1.75rem 1.5rem}
+  .blog-head{flex-direction:column;gap:0.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="preview-banner">⚠ Návrh homepage – pouze pro účely schválení klientem</div>
+
+<!-- HAMBURGER MOBILE MENU OVERLAY -->
+<div class="nav-mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigace">
+  <button class="nav-mobile-close" onclick="closeMobileMenu()" aria-label="Zavřít menu">✕</button>
+  <a href="#biznis" onclick="closeMobileMenu()">Byznys portrét</a>
+  <a href="#svadba" onclick="closeMobileMenu()">Svatební fotografie</a>
+  <a href="#omne" onclick="closeMobileMenu()">O mně</a>
+  <a href="#blog" onclick="closeMobileMenu()">Blog</a>
+  <a href="#kontakt" class="mobile-cta" onclick="closeMobileMenu()">Objednat focení</a>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">PĚLUCHA<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#biznis">Byznys portrét</a></li>
+    <li><a href="#svadba">Svatební fotografie</a></li>
+    <li><a href="#omne">O mně</a></li>
+    <li><a href="#blog">Blog</a></li>
+  </ul>
+  <a href="#kontakt" class="nav-cta">Objednat focení</a>
+  <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Otevřít menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left hero-photo-dark">
+    <div class="hero-placeholder dark-ph">[ byznys portrét – fotografie klienta ]</div>
+    <div class="hero-tag">Firemní &amp; LinkedIn</div>
+    <h1 class="hero-title-dark">Portrét,<br>který<br><em>otevírá dveře</em></h1>
+    <p class="hero-desc-dark">Profesionální headshoty pro manažery, týmy a LinkedIn profily</p>
+    <a href="#biznis" class="hero-btn">Byznys portrét →</a>
+  </div>
+  <div class="hero-divider"></div>
+  <div class="hero-badge">
+    <div class="hb-name">PETR<br>PĚLUCHA</div>
+    <div class="hb-years">15+ let</div>
+  </div>
+  <div class="hero-right hero-photo-light">
+    <div class="hero-placeholder light-ph">[ svatební fotografie – fotografie klienta ]</div>
+    <div class="hero-tag">Svatební fotograf</div>
+    <h1 class="hero-title-light">Slzy i smích<br><em>zachycené</em><br>natrvalo</h1>
+    <p class="hero-desc-light">Prémiové reportáže zachycující každou emoci vašeho velkého dne</p>
+    <a href="#svadba" class="hero-btn hero-btn-light">Svatební fotografie →</a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <span class="trust-num">15+</span>
+    <span class="trust-label">let zkušeností</span>
+  </div>
+  <div class="trust-dot"></div>
+  <div class="trust-item">
+    <span class="trust-num">800+</span>
+    <span class="trust-label">spokojených párů</span>
+  </div>
+  <div class="trust-dot"></div>
+  <div class="trust-item">
+    <span class="trust-num">24h</span>
+    <span class="trust-label">první snímky</span>
+  </div>
+  <div class="trust-dot"></div>
+  <div class="trust-item">
+    <span class="trust-num">CZ · SK · EU</span>
+    <span class="trust-label">focení po celé Evropě</span>
+  </div>
+</div>
+
+<!-- SEKCE A: BYZNYS -->
+<section class="section" id="biznis" style="background:var(--white)">
+  <div class="page">
+    <div class="biz-grid">
+      <div class="biz-visual">
+        <div class="photo-label">[ byznys portrét – fotografie klienta ]</div>
+        <div class="biz-quote">„Důvěryhodnost<br>na první pohled."</div>
+      </div>
+      <div>
+        <div class="section-tag">Byznys portrét &amp; Headshoty</div>
+        <h2 class="section-title">Zaujměte<br>na <em>první pohled</em></h2>
+        <p style="font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;line-height:1.85">Váš profil vás zastupuje dříve, než otevřete ústa. Profesionální portrét buduje důvěryhodnost – online i v tiskových materiálech.</p>
+        <div class="arg-list">
+          <div class="arg-item">
+            <div class="arg-num">01</div>
+            <div class="arg-text">
+              <h4>Trému vyřešíme společně</h4>
+              <p>Celým procesem vás provedu krok za krokem – žádné strojené grimasy, jen přirozené výsledky.</p>
+            </div>
+          </div>
+          <div class="arg-item">
+            <div class="arg-num">02</div>
+            <div class="arg-text">
+              <h4>Hotové snímky do 24–48 hodin</h4>
+              <p>Špičkově vyretušované fotografie dostanete rychle – žádné týdenní čekání.</p>
+            </div>
+          </div>
+          <div class="arg-item">
+            <div class="arg-num">03</div>
+            <div class="arg-text">
+              <h4>Vlastní ateliér i focení na lokaci</h4>
+              <p>Přijďte do studia u Prahy, nebo za vámi přijedu přímo do kanceláře.</p>
+            </div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div class="price-card">
+            <div class="price-name">Standard</div>
+            <div class="price-amount">od 1 900 Kč</div>
+            <div class="price-desc">Ideální pro CV a LinkedIn profil</div>
+          </div>
+          <div class="price-card featured">
+            <div class="price-badge">Nejoblíbenější</div>
+            <div class="price-name">Premium</div>
+            <div class="price-amount">od 2 200 Kč</div>
+            <div class="price-desc">Média, firemní web, kanceláře</div>
+          </div>
+        </div>
+        <a href="#kontakt" class="btn-primary" onclick="preselectService('biznis')">Rezervovat byznys focení →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEKCE B: SVATBA -->
+<section class="wedding-section section" id="svadba">
+  <div class="page">
+    <div class="wedding-grid">
+      <div>
+        <div class="section-tag">Prémiová svatební fotografie</div>
+        <h2 class="section-title">Váš příběh<br>jako z <em>titulní strany</em></h2>
+        <p style="font-size:0.82rem;color:rgba(253,252,250,0.52);margin-bottom:0.5rem;line-height:1.85">Každá svatba je jedinečná. Mým úkolem není řídit show – ale zachytit ji. Slzy, smích i ty nepopsatelné okamžiky mezi.</p>
+        <div class="arg-list">
+          <div class="arg-item">
+            <div class="arg-num">01</div>
+            <div class="arg-text">
+              <h4>Žádné strojené pózy</h4>
+              <p>Dokumentární styl – každý okamžik zachycen přirozeně, jak se skutečně stal.</p>
+            </div>
+          </div>
+          <div class="arg-item">
+            <div class="arg-num">02</div>
+            <div class="arg-text">
+              <h4>Mezinárodní zkušenosti</h4>
+              <p>Svatby focené po celé Evropě přináší nadstandardní cit pro světlo a kompozici.</p>
+            </div>
+          </div>
+          <div class="arg-item">
+            <div class="arg-num">03</div>
+            <div class="arg-text">
+              <h4>Exkluzivní italská fotoalba</h4>
+              <p>Hmatatelná rodinná památka v nejvyšší kvalitě – nejen digitální soubory.</p>
+            </div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div class="price-card featured" style="max-width:280px">
+            <div class="price-badge">Nejoblíbenější balíček</div>
+            <div class="price-name">Svatební reportáž</div>
+            <div class="price-amount">od 8 900 Kč</div>
+            <div class="price-desc">Celý den · editace · online galerie</div>
+          </div>
+        </div>
+        <a href="#kontakt" class="btn-wedding" onclick="preselectService('svadba')">Zjistit dostupnost termínu →</a>
+      </div>
+      <div class="wedding-visual">
+        <div class="photo-label">[ svatební fotografie – fotografie klienta ]</div>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-thumb"></div>
+      <div class="gallery-thumb"></div>
+      <div class="gallery-thumb"></div>
+    </div>
+  </div>
+</section>
+
+<!-- O MNĚ -->
+<section class="about-section" id="omne">
+  <div class="page">
+    <div class="about-grid">
+      <div class="about-img">
+        <div class="photo-label-light">[ foto Petra Pěluchy ]</div>
+      </div>
+      <div>
+        <div class="section-tag">O fotografovi</div>
+        <div class="about-quote">„Za 15 let za objektivem jsem zjistil, že nejkrásnější fotky nevznikají z příkazů – ale z uvolněné atmosféry."</div>
+        <p class="about-body">Ahoj, jsem Petr. Fotím profesionálně od roku 2009 – od firemních headshotů pro manažery a korporátní týmy až po romantické destinační svatby na Apeninském poloostrově.</p>
+        <p class="about-body" style="margin-top:0.75rem">Ať stojíte před objektivem poprvé nebo jste zvyklí na mediální pozornost – mým cílem je vždy totéž: abyste se cítili přirozeně a výsledek překonal vaše očekávání.</p>
+        <div class="about-sig">Petr Pělucha</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCE -->
+<section class="reviews-section">
+  <div class="page">
+    <div class="reviews-head">
+      <div class="section-tag" style="text-align:center">Co říkají klienti</div>
+      <h2 class="section-title" style="text-align:center">Reference</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-text">Petr dokázal během hodiny vyfotit celý náš management. Výsledky na LinkedInu a firemním webu sklízí obdiv – působí přesně tak profesionálně, jak jsme potřebovali.</div>
+        <div class="review-author">Jana K. – HR Director, Praha</div>
+        <div class="review-chip chip-biz">Byznys portrét</div>
+      </div>
+      <div class="review-card">
+        <div class="review-text">Fotky ze svatby nám vyrazily dech. Petr byl téměř neviditelný, ale zachytil úplně všechno – od prvního pohledu až po poslední tanec. Každý snímek je příběh.</div>
+        <div class="review-author">Lucie a Martin, Brno</div>
+        <div class="review-chip chip-wed">Svatební fotografie</div>
+      </div>
+      <div class="review-card">
+        <div class="review-text">Měl jsem obrovskou trému, nikdy jsem se rád nefotil. Petr mě uvolnil, poradil s pózováním a výsledek? Moje nová profilovka dostává komentáře každý den.</div>
+        <div class="review-author">Tomáš R. – Sales Manager</div>
+        <div class="review-chip chip-biz">Byznys portrét</div>
+      </div>
+      <div class="review-card">
+        <div class="review-text">Italské fotoalbum, které jsme dostali, je rodinný poklad. Kvalitní vazba, nádherný papír, každý detail dokonalý. Nečekali jsme, že to bude tak krásné.</div>
+        <div class="review-author">Tereza a Ondřej, Praha</div>
+        <div class="review-chip chip-wed">Svatební fotografie</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KURZ – kompaktní banner -->
+<section class="kurz-section">
+  <div class="page">
+    <div class="kurz-inner">
+      <div>
+        <div class="kurz-kicker">Pro fotografy</div>
+        <h2 class="kurz-title">Naučte se fotit<br><em>jako profík</em></h2>
+        <p class="kurz-desc">Osobní konzultace i skupinové kurzy pro začátečníky i pokročilé. Focení v terénu, práce se světlem, post-processing – vše s individuální zpětnou vazbou přímo od Petra.</p>
+        <div class="kurz-meta">
+          <span class="kurz-pill">Praha &amp; online</span>
+          <span class="kurz-pill">Začátečníci i pokročilí</span>
+          <span class="kurz-pill">Skupinově i 1:1</span>
+        </div>
+      </div>
+      <div class="kurz-cta">
+        <a href="https://pelucha.cz/kurzy-a-konzultace-pro-fotografy/" target="_blank" class="btn-primary">Zjistit více o kurzech →</a>
+        <div class="kurz-note">Aktuální termíny na webu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG – náhled příspěvků -->
+<section class="blog-section" id="blog">
+  <div class="page">
+    <div class="blog-head">
+      <div class="blog-head-left">
+        <div class="section-tag">Ze zákulisí</div>
+        <h2 class="section-title">Blog &amp; inspirace</h2>
+      </div>
+      <a href="https://pelucha.cz/blog/" target="_blank" class="blog-all">Všechny články →</a>
+    </div>
+    <div class="blog-grid">
+      <a href="https://pelucha.cz/blog/" target="_blank" class="blog-card">
+        <div class="blog-thumb blog-thumb-dark">
+          <div class="photo-label">[ foto článku ]</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Byznys fotografie</div>
+          <div class="blog-title">5 věcí, které dělá váš LinkedIn portrét špatně – a jak je opravit</div>
+          <div class="blog-date">12. května 2026</div>
+        </div>
+      </a>
+      <a href="https://pelucha.cz/blog/" target="_blank" class="blog-card">
+        <div class="blog-thumb">
+          <div class="photo-label-light">[ foto článku ]</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Svatební fotografie</div>
+          <div class="blog-title">Jak si vybrat svatebního fotografa: 8 otázek, které musíte položit</div>
+          <div class="blog-date">28. dubna 2026</div>
+        </div>
+      </a>
+      <a href="https://pelucha.cz/blog/" target="_blank" class="blog-card">
+        <div class="blog-thumb blog-thumb-dark">
+          <div class="photo-label">[ foto článku ]</div>
+        </div>
+        <div class="blog-body">
+          <div class="blog-cat">Tipy &amp; triky</div>
+          <div class="blog-title">Zlatá hodinka: proč nejlepší světlo trvá jen 40 minut denně</div>
+          <div class="blog-date">3. dubna 2026</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁŘ -->
+<section class="form-section" id="kontakt">
+  <div class="page">
+    <div class="form-intro">
+      <div class="section-tag">Nezávazná poptávka</div>
+      <h2 class="section-title">Pojďme vytvořit<br><em>výjimečné snímky</em></h2>
+      <p>Vyplňte formulář a ozveme se do 24 hodin. Nezávazně, bez zbytečného zdržování.</p>
+    </div>
+    <div class="form-box">
+      <div class="form-grid">
+        <div>
+          <label class="field-label" for="f-name">Jméno a příjmení</label>
+          <input class="field-input" type="text" id="f-name" placeholder="Jan Novák">
+        </div>
+        <div>
+          <label class="field-label" for="f-contact">E-mail nebo telefon</label>
+          <input class="field-input" type="text" id="f-contact" placeholder="jan@firma.cz">
+        </div>
+        <div class="form-full">
+          <label class="field-label" for="f-service">O jaké focení máte zájem?</label>
+          <select class="field-input" id="f-service" onchange="handleServiceChange()">
+            <option value="">— Vyberte typ focení —</option>
+            <option value="biznis">Byznys portrét / Headshot</option>
+            <option value="svadba">Svatební fotografie</option>
+          </select>
+        </div>
+        <div class="dynamic-field form-full" id="df-biznis">
+          <label class="field-label" for="f-company">Počet osob / název firmy</label>
+          <input class="field-input" type="text" id="f-company" placeholder="1 osoba / Firma s.r.o.">
+        </div>
+        <div class="dynamic-field form-full" id="df-svadba">
+          <label class="field-label" for="f-date">Datum a místo svatby</label>
+          <input class="field-input" type="text" id="f-date" placeholder="15. 6. 2026 – Praha">
+        </div>
+        <div class="form-full">
+          <label class="field-label" for="f-msg">Vaše představa (volitelné)</label>
+          <textarea class="field-input" id="f-msg" placeholder="Cokoliv, co mi pomůže lépe vás připravit…"></textarea>
+        </div>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Odeslat nezávaznou poptávku</button>
+      <div class="form-note">Odpovídám osobně do 24 hodin &nbsp;·&nbsp; Bez závazků</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="page">
+    <div class="footer-inner">
+      <a href="#" class="footer-logo">PĚLUCHA<span>.</span></a>
+      <div class="footer-contact">
+        <div><a href="tel:+420604932816">+420 604 932 816</a> &nbsp;·&nbsp; <a href="mailto:petr@pelucha.com">petr@pelucha.com</a></div>
+        <div>Foto studio · Všedobrovice 974, 251 68 Kamenice</div>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/pelucha_photography/" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/PetrPeluchaPhotography" target="_blank">Facebook</a>
+        <a href="https://cz.pinterest.com/petrpelucha/" target="_blank">Pinterest</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu(){
+  var menu=document.getElementById('mobileMenu');
+  var btn=document.getElementById('hamburgerBtn');
+  var isOpen=menu.classList.contains('open');
+  if(isOpen){closeMobileMenu();}
+  else{menu.classList.add('open');btn.classList.add('open');document.body.style.overflow='hidden';}
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('mobileMenu').addEventListener('click',function(e){
+  if(e.target===this)closeMobileMenu();
+});
+function handleServiceChange(){
+  var val=document.getElementById('f-service').value;
+  document.getElementById('df-biznis').classList.toggle('visible',val==='biznis');
+  document.getElementById('df-svadba').classList.toggle('visible',val==='svadba');
+}
+function preselectService(val){
+  setTimeout(function(){
+    var sel=document.getElementById('f-service');
+    if(sel){sel.value=val;handleServiceChange();}
+  },300);
+}
+function submitForm(){
+  var name=document.getElementById('f-name').value.trim();
+  var contact=document.getElementById('f-contact').value.trim();
+  var service=document.getElementById('f-service').value;
+  if(!name||!contact||!service){alert('Vyplňte prosím jméno, kontakt a typ focení.');return;}
+  alert('Díky, '+name+'! Ozveme se vám co nejdříve.');
+}
+</script>
+</body>
+</html>
