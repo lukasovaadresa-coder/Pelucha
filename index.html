@@ -123,9 +123,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .reviews-inner{max-width:1100px;margin:0 auto;padding:0 2rem}
 .reviews-section .section-tag{color:var(--gold)}
 .reviews-section .section-title{color:var(--warm);margin-bottom:2.5rem}
-.carousel-wrapper{position:relative;overflow:hidden}
-.carousel-track{display:flex;gap:1.25rem;transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform}
-.carousel-slide{flex:0 0 calc(50% - 0.625rem);min-width:0}
+.carousel-wrapper{position:relative;overflow:hidden;margin:0 -2rem}
+.carousel-track{display:flex;gap:1.25rem;transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);will-change:transform;padding:0 2rem}
+.carousel-slide{flex:0 0 calc(43% - 1rem);min-width:0}
 .review-card{border-radius:2px;overflow:hidden;position:relative;aspect-ratio:3/4;background-size:cover;background-position:center top;cursor:default}
 .review-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(20,17,14,0.92) 0%,rgba(20,17,14,0.4) 40%,rgba(20,17,14,0.02) 70%)}
 .review-card-inner{position:absolute;bottom:0;left:0;right:0;padding:2rem 1.75rem;z-index:1;display:flex;flex-direction:column;gap:0.5rem}
@@ -260,7 +260,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
   .about-text-col{flex:none;padding:4rem 1.5rem;max-width:100%;margin-left:0}
   .about-photo-col{flex:none;height:70vw}
   .blog-grid{grid-template-columns:1fr}
-  .carousel-slide{flex:0 0 calc(80% - 0.625rem)}
+  .carousel-slide{flex:0 0 calc(78% - 0.625rem)}
   .kurz-inner{grid-template-columns:1fr}
   .form-grid{grid-template-columns:1fr}
 }
@@ -268,7 +268,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
   .services-grid{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr}
   .hero-title{font-size:2.4rem}
-  .carousel-slide{flex:0 0 calc(90% - 0.625rem)}
+  .carousel-slide{flex:0 0 calc(82% - 0.625rem)}
 }
 </style>
 </head>
@@ -412,8 +412,9 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
   <div class="reviews-inner">
     <div class="section-tag reveal">Co říkají klienti</div>
     <h2 class="section-title reveal">Reference</h2>
-    <div class="carousel-wrapper">
-      <div class="carousel-track" id="carouselTrack">
+  </div><!-- /reviews-inner -->
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
 
         <!-- Karta 1: Foto + reference (byznys) -->
         <div class="carousel-slide">
@@ -502,8 +503,9 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
           </div>
         </div>
 
-      </div>
     </div>
+  </div><!-- /carousel-wrapper -->
+  <div class="reviews-inner">
     <div class="carousel-nav">
       <div class="carousel-dots" id="carouselDots">
         <button class="carousel-dot active"></button>
@@ -518,7 +520,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
         <button class="carousel-arrow" id="carouselNext">›</button>
       </div>
     </div>
-  </div>
+  </div><!-- /reviews-inner -->
 </section>
 
 <!-- PRO FOTOGRAFY / KURZY -->
@@ -735,7 +737,9 @@ var visibleSlides = window.innerWidth > 900 ? 2 : 1;
 var currentCar = 0;
 
 function updateCarousel() {
-  var slideWidth = track.querySelector('.carousel-slide').offsetWidth + 20; // 20 = gap
+  var slide = track.querySelector('.carousel-slide');
+  var gap = 20;
+  var slideWidth = slide.offsetWidth + gap;
   track.style.transform = 'translateX(-' + (currentCar * slideWidth) + 'px)';
   carouselDots.forEach(function(d, i) { d.classList.toggle('active', i === currentCar); });
 }
