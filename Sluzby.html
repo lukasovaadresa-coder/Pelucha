@@ -106,8 +106,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 /* ── SROVNÁVACÍ TABULKA ── */
 .compare-section{background:var(--dark);padding:5.5rem 2rem}
 .compare-inner{max-width:1100px;margin:0 auto}
-.compare-section .section-tag{color:var(--gold);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.6rem}
-.compare-section .section-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--warm);margin-bottom:2.5rem;line-height:1.15}
+.compare-section .section-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.compare-section .section-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;line-height:1.15;color:var(--dark);margin-bottom:2.5rem}
+.section-title em{font-style:italic;color:var(--gold)}
 .compare-section .section-title em{font-style:italic;color:var(--gold-light)}
 .compare-table{width:100%;border-collapse:collapse;font-size:0.78rem}
 .compare-table th{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,241,235,0.4);padding:0.75rem 1rem;text-align:left;border-bottom:0.5px solid rgba(184,151,74,0.15)}
@@ -154,6 +155,22 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
 .footer-legal a{font-size:0.68rem;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.2s}
 .footer-legal a:hover{color:rgba(255,255,255,0.5)}
 
+
+/* ── FORMULÁŘ ── */
+.form-section{background:var(--dark);padding:6.5rem 2rem}
+.form-inner{max-width:680px;margin:0 auto}
+.form-section .section-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.form-section .section-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;line-height:1.15;color:var(--warm);margin-bottom:2.5rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-full{grid-column:1/-1}
+.field-label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,241,235,0.5);margin-bottom:0.4rem}
+.field-input{width:100%;background:rgba(255,255,255,0.05);border:0.5px solid rgba(184,151,74,0.22);border-radius:1px;padding:0.85rem 1rem;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--warm);outline:none;transition:border-color 0.2s}
+.field-input:focus{border-color:rgba(184,151,74,0.6)}
+.field-input::placeholder{color:rgba(245,241,235,0.2)}
+textarea.field-input{resize:vertical;min-height:120px}
+.form-submit{width:100%;padding:1.05rem;background:var(--gold);border:none;color:var(--dark);font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:1px;transition:background 0.2s;margin-top:0.5rem}
+.form-submit:hover{background:var(--gold-light)}
+@media(max-width:560px){.form-grid{grid-template-columns:1fr}.form-full{grid-column:1}}
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .nav-links,.nav-cta,.nav-lang{display:none}
@@ -444,6 +461,47 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
 </section>
 
 
+
+<!-- KONTAKT -->
+<section class="form-section" id="kontakt">
+  <div class="form-inner">
+    <div class="section-tag">Kontakt</div>
+    <h2 class="section-title">Napište mi</h2>
+    <div class="form-grid reveal">
+      <div>
+        <label class="field-label">Jméno</label>
+        <input class="field-input" type="text" placeholder="Jan Novák" id="f-name">
+      </div>
+      <div>
+        <label class="field-label">E-mail</label>
+        <input class="field-input" type="email" placeholder="jan@example.com" id="f-email">
+      </div>
+      <div>
+        <label class="field-label">Telefon</label>
+        <input class="field-input" type="tel" placeholder="+420 000 000 000" id="f-phone">
+      </div>
+      <div>
+        <label class="field-label">Služba</label>
+        <select class="field-input" id="f-service">
+          <option value="">Vyberte službu</option>
+          <option>Byznys portrét</option>
+          <option>Svatební fotografie</option>
+          <option>Zásnubní fotografie</option>
+          <option>Školní focení</option>
+          <option>Kurz / workshop</option>
+          <option>Jiné</option>
+        </select>
+      </div>
+      <div class="form-full">
+        <label class="field-label">Zpráva</label>
+        <textarea class="field-input" rows="4" placeholder="Řekněte mi o svém projektu..." id="f-msg"></textarea>
+      </div>
+      <div class="form-full">
+        <button class="form-submit" onclick="submitForm()">Odeslat zprávu →</button>
+      </div>
+    </div>
+  </div>
+</section>
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
