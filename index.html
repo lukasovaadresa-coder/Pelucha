@@ -22,7 +22,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:0.08em;color:var(--dark);text-decoration:none;transition:color 0.3s}
 .nav.dark .nav-logo{color:var(--warm)}
 .nav-logo span{color:var(--gold)}
-.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
 .nav-links a{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
 .nav.dark .nav-links a{color:rgba(245,241,235,0.75)}
 .nav-links a:hover{color:var(--gold)}
@@ -279,7 +279,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
   <button class="nav-mobile-close" onclick="closeMobileMenu()">✕</button>
   <a href="biznis-portret.html" onclick="closeMobileMenu()">Byznys portrét</a>
   <a href="svatebni-fotografie.html" onclick="closeMobileMenu()">Svatby</a>
-  <a href="#sluzby" onclick="closeMobileMenu()">Služby</a>
+  <a href="sluzby.html" onclick="closeMobileMenu()">Služby</a>
   <a href="#o-mne" onclick="closeMobileMenu()">O mně</a>
   <div class="nav-mobile-lang">
     <button class="active" onclick="setLang('cs')">CS</button>
@@ -294,7 +294,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
   <ul class="nav-links">
     <li><a href="biznis-portret.html">Byznys portrét</a></li>
     <li><a href="svatebni-fotografie.html">Svatby</a></li>
-    <li><a href="#sluzby">Služby</a></li>
+    <li><a href="sluzby.html">Služby</a></li>
     <li><a href="#o-mne">O mně</a></li>
   </ul>
   <div class="nav-right">
@@ -319,8 +319,8 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">Petr Pělucha · Fotograf</div>
-    <h1 class="hero-title">Dávám momentům<br><em>trvalou hodnotu</em></h1>
+    <div class="hero-tag">Momenty natrvalo</div>
+    <h1 class="hero-title">Petr Pělucha<br><em>fotograf</em></h1>
     <div class="hero-scroll" onclick="document.querySelector('.split-section').scrollIntoView({behavior:'smooth'})">
       <div class="hero-scroll-line"></div>
       <span>Scroll</span>
@@ -397,7 +397,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
   <div class="about-text-col reveal-left">
     <div class="section-tag">O fotografovi</div>
     <blockquote class="about-quote">„Fotím lidi – a chci, aby na každém snímku bylo vidět, kdo skutečně jsou."</blockquote>
-    <p class="about-body">Jsem Petr Pělucha. Portrétní i situační fotografii se věnuji přes 20 let. Za svatebními momentkami jsem cestoval až do Indie či do Skotska a za svoji práci jsem získal řadu ocenění od mezinárodních agentur jako ISPWP nebo 5 Star Wedding.</p>
+    <p class="about-body">Portrétní i situační fotografii se věnuji přes 20 let. Za svatebními momentkami jsem cestoval až do Indie či do Skotska a za svoji práci jsem získal řadu ocenění od mezinárodních agentur jako ISPWP nebo 5 Star Wedding.</p>
     <p class="about-body">Pracuji ve vlastním studiu u Prahy nebo přijíždím přímo k vám. Každé focení beru jako partnerství – proto si dávám záležet na přípravě, komunikaci i výsledku.</p>
     <div class="about-sig">— Petr Pělucha</div>
     <a href="#kontakt" class="btn-outline">Napsat mi →</a>
@@ -740,7 +740,8 @@ function getTrackOffset() {
   // Align first card with reviews-inner left edge
   var inner = document.querySelector('.reviews-inner');
   if (!inner) return 32;
-  return inner.getBoundingClientRect().left;
+  var offset = inner.getBoundingClientRect().left;
+  return Math.max(offset, 20); // minimum 20px from edge
 }
 
 function initCarousel() {
