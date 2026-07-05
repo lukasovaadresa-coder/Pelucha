@@ -94,8 +94,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .accordion-toggle.open svg{transform:rotate(180deg)}
 .accordion-toggle.open{color:var(--gold)}
 
-.accordion-body{max-height:0;overflow:hidden;transition:max-height 0.45s ease}
-.accordion-body.open{max-height:800px}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height 0.6s cubic-bezier(0.4,0,0.2,1)}
+.accordion-body.open{}
 .price-table{width:100%;border-collapse:collapse;margin-top:1.25rem;font-size:0.78rem}
 .price-table th{font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-align:left;padding:0.5rem 0.65rem;border-bottom:0.5px solid rgba(184,151,74,0.25)}
 .price-table td{padding:0.65rem 0.65rem;border-bottom:0.5px solid rgba(184,151,74,0.1);color:var(--text);vertical-align:top;line-height:1.45}
@@ -551,7 +551,16 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link) {
 function toggleAccordion(id, btn) {
   var body = document.getElementById(id);
   var isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
+  if (isOpen) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    requestAnimationFrame(function() {
+      body.style.maxHeight = '0';
+    });
+    body.classList.remove('open');
+  } else {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.classList.add('open');
+  }
   btn.classList.toggle('open', !isOpen);
 }
 
