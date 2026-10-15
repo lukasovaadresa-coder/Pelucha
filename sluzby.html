@@ -6,7 +6,7 @@
 <title>Přehled služeb – Petr Pělucha Fotograf</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--gold:#B8974A;--gold-light:#D4B472;--dark:#1A1714;--mid:#3A3530;--warm:#F5F1EB;--soft:#EDE8E0;--text:#2A2520;--muted:#7A7268;--white:#FDFCFA;}
@@ -16,7 +16,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 /* ── NAV ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:68px;background:rgba(253,252,250,0.95);backdrop-filter:blur(12px);border-bottom:0.5px solid rgba(184,151,74,0.15);transition:background 0.3s}
 .nav.dark{background:rgba(26,23,20,0.88);border-bottom-color:rgba(184,151,74,0.1)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:0.08em;color:var(--dark);text-decoration:none;transition:color 0.3s}
+.nav-logo{font-family:'Lora',serif;font-size:1.2rem;font-weight:300;letter-spacing:0.08em;color:var(--dark);text-decoration:none;transition:color 0.3s}
 .nav.dark .nav-logo{color:var(--warm)}
 .nav-logo span{color:var(--gold)}
 .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;position:absolute;left:50%;transform:translateX(-50%)}
@@ -41,7 +41,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 .nav-mobile-menu{display:none;position:fixed;inset:0;background:var(--dark);z-index:190;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
 .nav-mobile-menu.open{display:flex}
-.nav-mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--warm);text-decoration:none;letter-spacing:0.04em}
+.nav-mobile-menu a{font-family:'Lora',serif;font-size:2rem;font-weight:300;color:var(--warm);text-decoration:none;letter-spacing:0.04em}
 .nav-mobile-menu a:hover{color:var(--gold)}
 .nav-mobile-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;cursor:pointer;color:rgba(245,241,235,0.5);font-size:1.5rem}
 .nav-mobile-lang{display:flex;gap:1rem;margin-top:1rem}
@@ -52,7 +52,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 /* ── HERO ── */
 .page-hero{background:var(--dark);padding:9rem 2rem 5.5rem;text-align:center}
 .page-hero-tag{font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-.page-hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;color:var(--warm);line-height:1.1;margin-bottom:1rem}
+.page-hero-h1{font-family:'Lora',serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;color:var(--warm);line-height:1.1;margin-bottom:1rem}
 .page-hero-h1 em{font-style:italic;color:var(--gold-light)}
 .page-hero-sub{font-size:0.82rem;color:rgba(245,241,235,0.5);max-width:50ch;margin:0 auto 2.5rem}
 
@@ -72,9 +72,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .service-photo-col{flex:0 0 50%;min-width:0;position:relative;overflow:hidden}
 .service-photo-img{position:absolute;inset:-12%;background-size:cover;background-position:center;will-change:transform}
 
-.service-number{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;color:rgba(184,151,74,0.12);line-height:1;margin-bottom:-0.5rem}
+.service-number{font-family:'Lora',serif;font-size:5rem;font-weight:300;color:rgba(184,151,74,0.12);line-height:1;margin-bottom:-0.5rem}
 .service-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
-.service-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;line-height:1.1;color:var(--dark);margin-bottom:1rem}
+.service-title{font-family:'Lora',serif;font-size:2.4rem;font-weight:300;line-height:1.35;color:var(--dark);margin-bottom:1rem}
 .service-title em{font-style:italic;color:var(--gold)}
 .service-desc{font-size:0.82rem;color:var(--muted);line-height:1.85;max-width:46ch;margin-bottom:1.5rem}
 .service-features{list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.75rem}
@@ -82,7 +82,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .service-features li::before{content:'';display:inline-block;width:14px;height:14px;min-width:14px;margin-top:0.1rem;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B8974A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat}
 .service-price-badge{display:inline-flex;align-items:baseline;gap:0.4rem;margin-bottom:1.5rem}
 .service-price-from{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
-.service-price-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--dark)}
+.service-price-val{font-family:'Lora',serif;font-size:2rem;font-weight:600;color:var(--dark)}
 .service-btns{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center}
 .btn-gold{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.68rem;letter-spacing:0.13em;text-transform:uppercase;padding:0.8rem 1.75rem;background:var(--gold);color:var(--dark);border:none;cursor:pointer;border-radius:1px;transition:background 0.2s;text-decoration:none;font-family:'DM Sans',sans-serif;font-weight:500}
 .btn-gold:hover{background:var(--gold-light)}
@@ -107,7 +107,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .compare-section{background:var(--dark);padding:5.5rem 2rem}
 .compare-inner{max-width:1100px;margin:0 auto}
 .compare-section .section-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
-.compare-section .section-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;line-height:1.15;color:var(--dark);margin-bottom:2.5rem}
+.compare-section .section-title{font-family:'Lora',serif;font-size:2.4rem;font-weight:300;line-height:1.15;color:var(--dark);margin-bottom:2.5rem}
 .section-title em{font-style:italic;color:var(--gold)}
 .compare-section .section-title em{font-style:italic;color:var(--gold-light)}
 .compare-table{width:100%;border-collapse:collapse;font-size:0.78rem}
@@ -115,7 +115,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--text);
 .compare-table td{padding:1.1rem 1rem;border-bottom:0.5px solid rgba(255,255,255,0.05);color:rgba(245,241,235,0.7);vertical-align:middle}
 .compare-table tr:hover td{background:rgba(184,151,74,0.04)}
 .compare-table tr:last-child td{border-bottom:none}
-.compare-table td:first-child{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--warm);font-weight:400}
+.compare-table td:first-child{font-family:'Lora',serif;font-size:1rem;color:var(--warm);font-weight:400}
 .compare-table td:nth-child(3){color:var(--gold-light);font-weight:500}
 .compare-tag{display:inline-block;font-size:0.58rem;letter-spacing:0.08em;padding:0.2rem 0.55rem;border-radius:1px;text-transform:uppercase}
 .tag-biz{background:rgba(184,151,74,0.2);color:var(--gold-light)}
@@ -135,7 +135,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:0.5px solid rgba(184,151,74,0.12)}
 .footer-brand{display:flex;flex-direction:column;gap:1.25rem}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--warm);letter-spacing:0.08em;text-decoration:none}
+.footer-logo{font-family:'Lora',serif;font-size:1.3rem;font-weight:400;color:var(--warm);letter-spacing:0.08em;text-decoration:none}
 .footer-logo span{color:var(--gold)}
 .footer-tagline{font-size:0.78rem;color:rgba(245,241,235,0.4);line-height:1.7;max-width:28ch}
 .footer-social{display:flex;gap:0.75rem;margin-top:0.5rem}
@@ -160,7 +160,7 @@ footer{background:#111009;padding:5rem 2rem 2.5rem}
 .form-section{background:var(--dark);padding:6.5rem 2rem}
 .form-inner{max-width:680px;margin:0 auto}
 .form-section .section-tag{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
-.form-section .section-title{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;line-height:1.15;color:var(--warm);margin-bottom:2.5rem}
+.form-section .section-title{font-family:'Lora',serif;font-size:2.4rem;font-weight:300;line-height:1.15;color:var(--warm);margin-bottom:2.5rem}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .form-full{grid-column:1/-1}
 .field-label{display:block;font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,241,235,0.5);margin-bottom:0.4rem}
